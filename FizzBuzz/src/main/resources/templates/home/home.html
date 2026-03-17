@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- CSS読込 -->
+	<link rel="stylesheet" th:href="@{/css/home.css}"> 
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<!-- JS読み込み -->
+	<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<title>Home</title>	
+</head>
+
+<body class="background">
+	<form id="fizzbuzz-form" method="post" th:action="@{/home}" class="from-coupon" th:object="${fizzbuzzForm}"> 
+	<div class="form-fizzbuzz">
+		<h1>fizzbuzz判定課題</h1>
+		<div class="form-group"> 
+			<label for="number" th:text="数値入力欄"></label>
+			<input type="number" class="spin_erase form-control" th:field="*{number}" th:errorclass="is-invalid" />
+			<div class="invalid-feedback" th:errors="*{number}"></div> 
+		</div> 
+		<input type="submit" th:value="判定する" class="btn btn-primary " />
+	</div>
+	</form>
+</body>

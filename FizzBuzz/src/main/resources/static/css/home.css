@@ -1,0 +1,19 @@
+.background{
+	background-color: #dcdcdc;
+}
+.form-fizzbuzz{
+	text-align: center;
+	width: 100%;
+	max-width: 30%;
+	padding: 15px;
+	margin: auto;
+	padding-top: 20%;
+}
+.from-fizzbuzz td{
+	border: 1px solid #dcdcdc;
+	height: 60px;
+}
+.from-fizzbuzz th{
+	border: 1px solid #dcdcdc;
+	height: 60px;
+}

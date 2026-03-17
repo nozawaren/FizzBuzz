@@ -1,0 +1,38 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper と xmlのマッピング -->
+<mapper namespace="com.example.repository.FizzbuzzMapper">
+
+<!-- <resultMap type="com.example.domain.user.model.MUser" id="user"> 
+<id column="user_id" property="userId" /> 
+	<result column="user_name" property="userName" /> 
+	<result column="email" property="email" /> 
+	<result column="password" property="password" /> 
+	<result column="role" property="role" /> 
+</resultMap> -->
+
+<insert id="insertResult">
+	insert into m_result(
+		result_num ,
+		fizzbuzz_result
+	)
+	values(
+	   #{resultNum} ,
+	   #{fizzbuzzResult}
+	)
+</insert>
+<delete id="delResult">
+	delete 
+	from m_result
+</delete>
+
+<insert id="insertHistory">
+	insert into m_fizzbuzz(
+		number
+	)
+	values(
+	   #{number}
+	 )
+</insert>
+
+</mapper>
