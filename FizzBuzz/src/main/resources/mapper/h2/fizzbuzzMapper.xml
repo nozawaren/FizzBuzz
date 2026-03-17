@@ -3,13 +3,16 @@
 <!-- Mapper と xmlのマッピング -->
 <mapper namespace="com.example.repository.FizzbuzzMapper">
 
-<!-- <resultMap type="com.example.domain.user.model.MUser" id="user"> 
-<id column="user_id" property="userId" /> 
-	<result column="user_name" property="userName" /> 
-	<result column="email" property="email" /> 
-	<result column="password" property="password" /> 
-	<result column="role" property="role" /> 
-</resultMap> -->
+<resultMap type="com.example.domain.fizzbuzz.model.MResult" id="result"> 
+<id column="risult_id" property="risultId" /> 
+	<result column="risult_num" property="risultNum" /> 
+	<result column="fizzbuzz_result" property="fizzbuzzResult" /> 
+</resultMap>
+
+<resultMap type="com.example.domain.fizzbuzz.model.MFizzbuzz" id="fizzbuzz"> 
+<id column="fizzbuzz_id" property="fizzbuzzId" /> 
+	<result column="number" property="number" /> 
+</resultMap>
 
 <insert id="insertResult">
 	insert into m_result(
@@ -22,8 +25,13 @@
 	)
 </insert>
 <delete id="delResult">
-	delete 
-	from m_result
+	delete from m_result
+</delete>
+
+<delete id="clear">
+	ALTER TABLE m_result 
+	ALTER COLUMN risult_id 
+	RESTART WITH 1
 </delete>
 
 <insert id="insertHistory">
@@ -34,5 +42,31 @@
 	   #{number}
 	 )
 </insert>
+
+<select id="selectResult" resultType="com.example.domain.fizzbuzz.model.MResult">
+	select
+		risult_id ,
+		result_num,
+		fizzbuzz_result
+	from
+		m_result
+</select>
+
+<select id="historyCount" resultType="int">
+	select count(*)
+	from m_fizzbuzz
+</select>
+
+
+<select id="findHistory" resultType="com.example.domain.fizzbuzz.model.MFizzbuzz">
+	select
+		*
+	from
+		m_fizzbuzz
+	<if test="strSet != -1">
+		limit 5 
+		OFFSET #{strSet}
+	</if>
+</select>
 
 </mapper>

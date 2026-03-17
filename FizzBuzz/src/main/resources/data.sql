@@ -1,5 +1,5 @@
 INSERT INTO m_fizzbuzz
-(number,fizzbuzz_result)
+(number)
 VALUES
 (6),
 (10),

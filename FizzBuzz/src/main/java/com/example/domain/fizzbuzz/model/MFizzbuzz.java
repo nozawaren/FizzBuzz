@@ -1,5 +1,9 @@
 package com.example.domain.fizzbuzz.model;
 
-public class MFizzbuzz {
+import lombok.Data;
 
+@Data
+public class MFizzbuzz {
+	public int fizzbuzzId;
+	public int number;
 }

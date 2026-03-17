@@ -8,5 +8,5 @@ public class FizzBuzzs {
 	public static final String FIZZ = "fizz";
 	public static final String BUZZ = "buzz";
 	public static final String FIZZBUZZ = "fizzbuzz";
-
+	public static final int HISTORY = 3;
 }

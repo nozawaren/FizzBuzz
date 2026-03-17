@@ -5,23 +5,37 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- CSS読込 -->
 	<link rel="stylesheet" th:href="@{/css/home.css}"> 
+	<link rel="stylesheet" th:href="@{/css/result.css}"> 
 	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 	<!-- JS読み込み -->
 	<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-	<title>Home</title>	
+	<title>result</title>	
 </head>
 
 <body class="background">
-	<form id="fizzbuzz-form" method="post" th:action="@{/result}" class="from-coupon" th:object="${resultForm}"> 
-	<div class="form-fizzbuzz">
-		<h1>fizzbuzz判定課題</h1>
-		<div class="form-group"> 
-			<label for="number" th:text="数値入力欄"></label>
-			<input type="number" class="spin_erase form-control" th:field="*{number}" th:errorclass="is-invalid" />
-			<div class="invalid-feedback" th:errors="*{number}"></div> 
-		</div> 
-		<input type="submit" th:value="判定する" class="btn btn-primary " />
-	</div>
+	<form id="form-fizzbuzz" class="form-fizzbuzz"> 
+		<h1 th:text="buzzfizz判定結果"></h1> 
+		<h2 th:text="|入力した値は、${inputNum}です|"></h2>
+		<div th:if="${!#lists.isEmpty(ResultForm)}">
+			<table  class="from-admin">
+				<thead class="thead-fizzbuzz"> 
+					<tr> 
+						<th class="th-width">数値</th> 
+						<th class="th-width">結果</th> 
+					</tr>
+				</thead> 
+				<tbody> 
+					<tr th:each="item: ${ResultForm}" class="color_green" 
+					th:classappend="${item.fizzbuzzResult == 'fizz'} ? 'color_blank' : (
+									${item.fizzbuzzResult == 'buzz'} ? 'color_red'   : (
+									${item.fizzbuzzResult == 'fizzbuzz'} ? 'color_blue'
+									))">
+						<td th:text="${item.resultNum}"></td>
+						<td th:text="${item.fizzbuzzResult}"></td>
+					</tr> 
+				</tbody> 
+			</table>
+		</div>
 	</form>
 </body>

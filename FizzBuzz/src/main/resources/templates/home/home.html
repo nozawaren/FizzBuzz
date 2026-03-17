@@ -22,6 +22,19 @@
 			<div class="invalid-feedback" th:errors="*{number}"></div> 
 		</div> 
 		<input type="submit" th:value="判定する" class="btn btn-primary " />
+		<div th:if="${!#lists.isEmpty(HistoryList)}">
+			<table  class="from-admin">
+				<thead class="thead-fizzbuzz"> 
+					<tr> 
+						<th class="th-width">入力履歴</th> 
+					</tr>
+				</thead> 
+				<tbody> 
+					<tr th:each="item: ${HistoryList}">
+						<td th:text="${item.number}"></td>
+					</tr> 
+				</tbody> 
+			</table>
+		</div>
 	</div>
-	</form>
 </body>

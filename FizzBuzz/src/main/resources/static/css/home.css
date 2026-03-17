@@ -17,3 +17,10 @@
 	border: 1px solid #dcdcdc;
 	height: 60px;
 }
+
+.spin_erase::-webkit-inner-spin-button,
+.spin_erase::-webkit-outer-spin-button {
+-webkit-appearance: none!important;
+margin: 0!important;
+-moz-appearance:textfield!important;
+}

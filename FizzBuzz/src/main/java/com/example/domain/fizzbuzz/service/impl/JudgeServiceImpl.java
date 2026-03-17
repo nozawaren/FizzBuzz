@@ -16,13 +16,14 @@ public class JudgeServiceImpl implements JudgeService{
 		//結果テーブル初期化
 		fizzbuzzService.delResult();
 		int endNum = number + 100;
+		String result = "";
 		for(int i=number ; i <= endNum ;i++) {
-			String result = "";
-			if(number % FizzBuzzs.FIZZBUZZ_NUM == 0) {
+			result = "";
+			if((i % FizzBuzzs.FIZZBUZZ_NUM) == 0) {
 				result = FizzBuzzs.FIZZBUZZ;
-			}else if(number % FizzBuzzs.FIZZ_NUM == 0){
+			}else if((i % FizzBuzzs.FIZZ_NUM) == 0){
 				result = FizzBuzzs.FIZZ;
-			}else if(number % FizzBuzzs.BUZZ_NUM == 0){
+			}else if((i % FizzBuzzs.BUZZ_NUM) == 0){
 				result = FizzBuzzs.BUZZ;
 			}
 			//結果テーブルに登録
